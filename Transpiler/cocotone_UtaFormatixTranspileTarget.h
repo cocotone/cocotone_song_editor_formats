@@ -6,20 +6,20 @@ namespace song
 {
 
 //==============================================================================
-class VoicevoxTranspileTarget
+class UtaFormatixTranspileTarget
     : public cctn::song::ITranspileTarget<juce::String>
 {
 public:
     //==============================================================================
-    VoicevoxTranspileTarget() {}
-    virtual ~VoicevoxTranspileTarget() {}
+    UtaFormatixTranspileTarget() {}
+    virtual ~UtaFormatixTranspileTarget() {}
 
     //==============================================================================
     virtual juce::String transpile(const cctn::song::SongDocument& sourceDocument) override;
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VoicevoxTranspileTarget)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(UtaFormatixTranspileTarget)
 };
 
 }  // namespace song

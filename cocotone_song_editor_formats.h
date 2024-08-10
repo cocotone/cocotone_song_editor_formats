@@ -30,4 +30,5 @@
 
 //==============================================================================
 
+#include "Transpiler/cocotone_UtaFormatixTranspileTarget.h"
 #include "Transpiler/cocotone_VoicevoxTranspileTarget.h"

@@ -205,11 +205,11 @@ static juce::var createScoreJsonFromSongDocument(const cctn::song::SongDocument&
 }  // namespace anonymous
 
 //==============================================================================
-juce::String cctn::song::VoicevoxTranspileTarget::transpile(const cctn::song::SongDocument& sourceDocument)
+juce::String VoicevoxTranspileTarget::transpile(const cctn::song::SongDocument& sourceDocument)
 {
     juce::Logger::outputDebugString(sourceDocument.dumpToString());
 
-    return juce::JSON::toString(cctn::song::createScoreJsonFromSongDocument(sourceDocument));
+    return juce::JSON::toString(createScoreJsonFromSongDocument(sourceDocument));
 }
 
 }  // namespace song
