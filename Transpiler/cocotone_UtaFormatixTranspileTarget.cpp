@@ -33,16 +33,8 @@ static juce::var convertSongDocumentToUtaformatix(const juce::var& songDocument)
         utaNote->setProperty("key", note["noteNumber"]);
 
         // Calculate tickOn and tickOff
-        int tickOn = 
-            (((int)note["startTimeInMusicalTime"]["bar"] - 1) * 4 +
-            ((int)note["startTimeInMusicalTime"]["beat"]) - 1) * (int)songDocument["ticksPerQuarterNote"] +
-            (int)note["startTimeInMusicalTime"]["tick"];
-
-        int tickOff = 
-            tickOn +
-            ((int)note["duration"]["bars"] * 4 +
-            (int)note["duration"]["beats"]) * (int)songDocument["ticksPerQuarterNote"] +
-            (int)note["duration"]["ticks"];
+        int tickOn = (int)note["absoluteTickOn"];
+        int tickOff = (int)note["absoluteTickOff"];
 
         utaNote->setProperty("tickOn", tickOn);
         utaNote->setProperty("tickOff", tickOff);
@@ -65,7 +57,7 @@ static juce::var convertSongDocumentToUtaformatix(const juce::var& songDocument)
         if (event["type"] == "kTimeSignature" || event["type"] == "kBoth")
         {
             juce::DynamicObject::Ptr timeSignature = new juce::DynamicObject();
-            timeSignature->setProperty("measurePosition", (int)event["tick"] / ((int)songDocument["ticksPerQuarterNote"] * 4));
+            timeSignature->setProperty("measurePosition", (int)event["measurePosition"]);
             timeSignature->setProperty("numerator", event["timeSignature"]["numerator"]);
             timeSignature->setProperty("denominator", event["timeSignature"]["denominator"]);
             timeSignatures.add(timeSignature.get());
