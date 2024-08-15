@@ -12,7 +12,7 @@ class VoicevoxTranspileTarget
 public:
     //==============================================================================
     VoicevoxTranspileTarget() {}
-    virtual ~VoicevoxTranspileTarget() {}
+    virtual ~VoicevoxTranspileTarget() override {}
 
     //==============================================================================
     virtual juce::String transpile(const cctn::song::SongDocument& sourceDocument) override;

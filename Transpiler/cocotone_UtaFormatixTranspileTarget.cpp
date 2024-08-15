@@ -14,7 +14,7 @@ static juce::var convertSongDocumentToUtaformatix(const juce::var& songDocument)
     utaformatix->setProperty("formatVersion", 1);
 
     juce::DynamicObject::Ptr project = new juce::DynamicObject();
-    utaformatix->setProperty("project", project.getObject());
+    utaformatix->setProperty("project", project.get());
 
     // Set project name
     project->setProperty("name", songDocument["metadata"]["title"]);
@@ -82,7 +82,7 @@ static juce::var convertSongDocumentToUtaformatix(const juce::var& songDocument)
     // Set measurePrefix (assuming it's always 0 as it's not present in SongDocument)
     project->setProperty("measurePrefix", 0);
 
-    return utaformatix;
+    return juce::var(utaformatix);
 }
 }
 

@@ -12,7 +12,7 @@ class UtaFormatixTranspileTarget
 public:
     //==============================================================================
     UtaFormatixTranspileTarget() {}
-    virtual ~UtaFormatixTranspileTarget() {}
+    virtual ~UtaFormatixTranspileTarget() override {}
 
     //==============================================================================
     virtual juce::String transpile(const cctn::song::SongDocument& sourceDocument) override;

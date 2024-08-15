@@ -44,7 +44,8 @@ static juce::var createScoreJsonFromSongDocument(const cctn::song::SongDocument&
     const int kInitialAndFinalSilence = 4;
 
     juce::Array<cctn::song::SongDocument::Note> sortedNotes = document.getNotes();
-    sortedNotes.sort(cctn::song::SongDocument::MusicalTmeDomainNoteComparator());
+    cctn::song::SongDocument::MusicalTmeDomainNoteComparator sorter;
+    sortedNotes.sort(sorter);
 
     juce::Array<VoicevoxScoreNote> scoreNotes;
 
